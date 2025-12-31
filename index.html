@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Happy New Year 2026 ❤️</title>
+    <link href="https://fonts.googleapis.com/css2?family=Gaegu:wght@400;700&family=Indie+Flower&family=Patrick+Hand&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #ffe0e9;
+            --paper-color: #fffbf0;
+            --line-color: #a29bfe;
+            --red-margin: #ff7675;
+            --text-color: #2d3436;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+        body {
+            background-color: var(--bg-color);
+            /* Cute Paw Pattern Background */
+            background-image: radial-gradient(#ff9ff3 15%, transparent 16%),
+                              radial-gradient(#55efc4 15%, transparent 16%);
+            background-size: 30px 30px;
+            font-family: 'Patrick Hand', cursive;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* --- BACKGROUND STICKERS (More Cute Cats) --- */
+        .bg-sticker {
+            position: absolute;
+            font-size: 2.5rem;
+            animation: floatAnim 4s infinite ease-in-out;
+            opacity: 0.8;
+            pointer-events: none;
+            z-index: 1;
+        }
+        @keyframes floatAnim {
+            0%, 100% { transform: translateY(0) rotate(-10deg); }
+            50% { transform: translateY(-15px) rotate(10deg); }
+        }
+
+        /* --- SCREEN 1: START (Prank 1 - Runaway Button) --- */
+        #start-screen {
+            position: absolute;
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.95);
+            width: 90%;
+            max-width: 350px;
+            padding: 25px;
+            border-radius: 25px;
+            text-align: center;
+            border: 4px dashed #fab1a0;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+        }
+
+        /* NEW CUTE CAT IMAGE (No Panda) */
+        .main-img {
+            width: 160px;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 5px solid #ffeaa7;
+            margin-bottom: 10px;
+        }
+
+        .btn-style {
+            background: #ff7675; color: white;
+            font-family: 'Indie Flower'; font-size: 1.5rem; font-weight: bold;
+            border: none; padding: 10px 30px; border-radius: 50px;
+            cursor: pointer; box-shadow: 0 5px 0 #d63031;
+            transition: 0.2s; margin-top: 15px;
+            position: relative;
+        }
+        .btn-style:active { transform: translateY(5px); box-shadow: none; }
+
+        /* --- SCREEN 2: CAT POP GAME (Prank 2) --- */
+        #game-screen-1 {
+            display: none;
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.9);
+            z-index: 200;
+            justify-content: center; align-items: center; flex-direction: column;
+        }
+
+        .pop-cat {
+            position: absolute;
+            width: 70px;
+            cursor: pointer;
+            animation: shakeCat 3s infinite;
+        }
+        @keyframes shakeCat {
+            0%, 100% { transform: rotate(-5deg); }
+            50% { transform: rotate(5deg); }
+        }
+
+        /* --- SCREEN 3: LOVE METER (Prank 3 - New!) --- */
+        #game-screen-2 {
+            display: none;
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: #ffe0e9;
+            z-index: 200;
+            justify-content: center; align-items: center; flex-direction: column;
+        }
+
+        .meter-container {
+            width: 80%; height: 30px; background: white;
+            border: 3px solid #ff7675; border-radius: 20px;
+            margin: 20px 0; overflow: hidden;
+        }
+        .meter-fill {
+            height: 100%; width: 0%;
+            background: linear-gradient(90deg, #fab1a0, #ff7675);
+            transition: width 0.1s;
+        }
+
+        /* --- FINAL: NOTEBOOK --- */
+        #book-wrapper {
+            display: none;
+            perspective: 1500px;
+            z-index: 50;
+        }
+        .book {
+            position: relative; width: 330px; height: 500px;
+            transform-style: preserve-3d;
+        }
+        .page {
+            position: absolute; top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: var(--paper-color);
+            border-radius: 5px 15px 15px 5px;
+            box-shadow: inset 20px 0 30px rgba(0,0,0,0.05), 5px 5px 15px rgba(0,0,0,0.1);
+            transform-origin: left center;
+            transition: transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
+            padding: 20px;
+            display: flex; flex-direction: column;
+            backface-visibility: hidden;
+        }
+
+        .paper-lines {
+            width: 100%; height: 100%;
+            background-image: repeating-linear-gradient(var(--paper-color) 0px, var(--paper-color) 24px, #74b9ff 25px);
+            position: relative;
+        }
+        .paper-lines::before {
+            content: ''; position: absolute; left: 25px; top: 0; bottom: 0; width: 2px; background: var(--red-margin);
+        }
+        .content {
+            position: relative; padding-left: 35px; padding-top: 5px;
+            font-size: 1.1rem; line-height: 25px; color: var(--text-color);
+        }
+
+        .flipped { transform: rotateY(-180deg); }
+        
+        /* Page Z-Indexes */
+        #p1 { z-index: 6; background: #fab1a0; border: 5px solid white; display: flex; align-items: center; justify-content: center;}
+        #p2 { z-index: 5; }
+        #p3 { z-index: 4; }
+        #p4 { z-index: 3; }
+        #p5 { z-index: 2; }
+
+        /* Nav Buttons */
+        .nav-btn {
+            position: absolute; bottom: 15px; right: 15px;
+            background: white; border: 2px dashed #ff7675; padding: 5px 10px;
+            border-radius: 10px; color: #d63031; font-family: 'Gaegu'; font-weight: bold; cursor: pointer;
+        }
+        .back-btn { right: auto; left: 15px; border-color: #74b9ff; color: #0984e3; }
+        .hl { background: rgba(255, 234, 167, 0.5); }
+        
+    </style>
+</head>
+<body>
+
+    <!-- MUSIC -->
+    <audio id="bg-music" loop>
+        <source src="https://codeskulptor-demos.commondatastorage.googleapis.com/pang/paza-moduless.mp3" type="audio/mp3">
+    </audio>
+
+    <!-- FLOATING BACKGROUND STICKERS (More Cats!) -->
+    <div class="bg-sticker" style="top:10%; left:10%;">🐱</div>
+    <div class="bg-sticker" style="top:20%; right:10%; animation-delay:1s;">🐾</div>
+    <div class="bg-sticker" style="top:80%; left:20%; animation-delay:2s;">🐈</div>
+    <div class="bg-sticker" style="top:70%; right:20%; animation-delay:0.5s;">😽</div>
+    <div class="bg-sticker" style="top:50%; left:5%; animation-delay:1.5s;">💖</div>
+    <div class="bg-sticker" style="top:40%; right:5%; animation-delay:2.5s;">🌸</div>
+
+    <!-- GAME 1: START SCREEN (Runaway Button) -->
+    <div id="start-screen">
+        <!-- New Cute Cat Image -->
+        <img src="https://img.freepik.com/free-vector/cute-cat-sitting-cartoon-vector-icon-illustration-animal-nature-icon-concept-isolated-premium-vector-flat-cartoon-style_138676-4148.jpg" 
+             class="main-img" alt="Cute Cat">
+        
+        <h1>Hi Mou! ❤️</h1>
+        <p>Before 2026 starts...</p>
+        <p>I have a gift for you! 🎁</p>
+        <button class="btn-style" id="runaway-btn" onclick="nextGame1()">Open Gift</button>
+    </div>
+
+    <!-- GAME 2: POP THE CATS -->
+    <div id="game-screen-1">
+        <h2 style="color:white; font-family:'Gaegu'; text-align:center;">
+            Wait! Security Check! 😼<br>Pop 15 Cats to enter!
+        </h2>
+        <h3 style="color:#fab1a0; margin-top:10px;" id="cat-counter">Left: 15</h3>
+    </div>
+
+    <!-- GAME 3: FILL THE LOVE (New!) -->
+    <div id="game-screen-2">
+        <!-- Center Sticker -->
+        <img src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" width="100" style="margin-bottom:20px;">
+        
+        <h2 style="color:#d63031; font-family:'Gaegu'; text-align:center;">
+            Almost there!<br>Fill the Heart with Love! ❤️
+        </h2>
+        <p style="text-align:center; color:#636e72;">(Tap button fast!)</p>
+        
+        <div class="meter-container">
+            <div class="meter-fill" id="love-bar"></div>
+        </div>
+
+        <button class="btn-style" onclick="fillLove()">Tap for Love! 💖</button>
+    </div>
+
+    <!-- FINAL: NOTEBOOK -->
+    <div id="book-wrapper">
+        <div class="book">
+
+            <!-- P1: Cover -->
+            <div class="page" id="p1">
+                <div style="text-align:center;">
+                    <h1 style="color:white; font-size:3.5rem; text-shadow:2px 2px #e17055;">Happy New Year</h1>
+                    <h2 style="color:#ffeaa7; font-size:3rem;">2026</h2>
+                    <br>
+                    <!-- Cover Sticker -->
+                    <div style="background:white; padding:15px; transform:rotate(-5deg); box-shadow:0 5px 15px rgba(0,0,0,0.1);">
+                        <img src="https://cdn-icons-png.flaticon.com/512/3063/3063823.png" width="80" alt="Heart">
+                        <p style="margin-top:5px; font-weight:bold; color:#555;">For Mou ❤️</p>
+                    </div>
+                    <button class="nav-btn" style="bottom:30px;" onclick="flipNext(1)">Open ➡️</button>
+                </div>
+            </div>
+
+            <!-- P2 -->
+            <div class="page" id="p2">
+                <div class="paper-lines">
+                    <div class="content">
+                        <p><strong>Happy New Year Mou ❤️</strong></p>
+                        <p>Meri dua hai iss naye saal mein tum dil se khush raho 🌸 bas itna yaad rakhna main hu tumhare sath pyar se samajhne ke liye sambhalne ke liye 💓</p>
+                        <br>
+                        <p>Iss New Year pe bas yahi chahata hu ki sab accha ho, tumhari aankhon main kvi ansu na aye, hamesha har Khushi mile, chehre pe <span class="hl">asli wali muskaan ho ✨</span></p>
+                    </div>
+                </div>
+                <button class="nav-btn" onclick="flipNext(2)">Next ➡️</button>
+                <button class="nav-btn back-btn" onclick="flipPrev(1)">Back</button>
+            </div>
+
+            <!-- P3 -->
+            <div class="page" id="p3">
+                <div class="paper-lines">
+                    <div class="content">
+                        <p>Jo vi dard tha jo vi thakaan thi sab pichhle saal mein chhoot jaye aur yeh naya saal tumhare liye umeed khushi aur pyar lekar aaye 🌙</p>
+                        <br>
+                        <p><strong>Happy New Year Maa 💫</strong></p>
+                        <p>Iss saal vi aur aane wale har saal mein vi tumhari khushi meri dua rahegi 💕.</p>
+                        <p>Pichhla saal tumhare liye aasaan nhi tha mujhe pta hai... tum hasti thi pr khushi kvi khush nhi thi.</p>
+                    </div>
+                </div>
+                <button class="nav-btn" onclick="flipNext(3)">Next ➡️</button>
+                <button class="nav-btn back-btn" onclick="flipPrev(2)">Back</button>
+            </div>
+
+            <!-- P4 -->
+            <div class="page" id="p4">
+                <div class="paper-lines">
+                    <div class="content">
+                        <p>Tum strong bani rahi pr andar se bohot thak gayi maine vi tumhe bhout dard diya 🥲 mere wajah se tumhe dard mila mere words behaviour ne tumhara dil dukhaya <span class="hl">dil se sorry.</span></p>
+                        <p>Mujhe pta hai sorry bol dene se sab thik nhi hou jata main maanta hu meri galtiyan aur main wada karta hu khud ko sudharne ka behtar insaan banne ka aur tumhe hamesha pyar aur respect dene ka.</p>
+                    </div>
+                </div>
+                <button class="nav-btn" onclick="flipNext(4)">Next ➡️</button>
+                <button class="nav-btn back-btn" onclick="flipPrev(3)">Back</button>
+            </div>
+
+             <!-- P5 (Ending) -->
+             <div class="page" id="p5">
+                <div class="paper-lines">
+                    <div class="content">
+                        <p>Maa New Year pe sab accha hoga iss naye saal mein tumhara dard tumhari thakaan sab khtm hoga. Sare dreams pure honge. Dil se hasogi ✨</p>
+                        <p>Tum akeli nhi ho maa yaad rakhna main hu tumhare sath sunne ke liye aur tumhe yaad dilane ke liye ki tum bohot keemti ho💓</p>
+                        <br>
+                        <p style="text-align:center;">Sab accha hoga main yahin hu<br><strong>Hamesha ♾️🌙✨</strong></p>
+                        <div style="text-align:center; font-size:1.5rem;">🐈💕🐈‍⬛</div>
+                    </div>
+                </div>
+                <button class="nav-btn back-btn" onclick="flipPrev(4)">Home</button>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        // --- AUDIO SETUP ---
+        const audio = document.getElementById('bg-music');
+        audio.volume = 0.5;
+
+        // --- GAME 1: RUNAWAY BUTTON ---
+        let jumps = 0;
+        const btn = document.getElementById('runaway-btn');
+
+        function moveButton() {
+            if(jumps < 6) { // Increased annoyance slightly
+                const x = Math.random() * (window.innerWidth - btn.offsetWidth - 20);
+                const y = Math.random() * (window.innerHeight - btn.offsetHeight - 20);
+                
+                // Safe area logic
+                const safeX = Math.max(10, Math.min(x, window.innerWidth - 150));
+                const safeY = Math.max(10, Math.min(y, window.innerHeight - 100));
+
+                btn.style.position = 'fixed';
+                btn.style.left = safeX + 'px';
+                btn.style.top = safeY + 'px';
+                jumps++;
+            }
+        }
+        
+        btn.addEventListener('mouseover', moveButton);
+        btn.addEventListener('touchstart', function(e) {
+            if(jumps < 6) { e.preventDefault(); moveButton(); }
+        });
+
+        function nextGame1() {
+            audio.play().catch(e => console.log("Audio needs interaction"));
+            if(jumps < 6) {
+                moveButton();
+            } else {
+                // Go to Game 2
+                document.getElementById('start-screen').style.display = 'none';
+                startGame2();
+            }
+        }
+
+        // --- GAME 2: POP CATS ---
+        let catsLeft = 15;
+        function startGame2() {
+            const screen = document.getElementById('game-screen-1');
+            screen.style.display = 'flex';
+
+            for(let i=0; i<15; i++) {
+                let img = document.createElement('img');
+                // Cute Cat Icon (Not Dog)
+                img.src = 'https://cdn-icons-png.flaticon.com/512/616/616554.png';
+                img.className = 'pop-cat';
+                
+                // Random Pos
+                img.style.left = Math.random() * (window.innerWidth - 60) + 'px';
+                img.style.top = Math.random() * (window.innerHeight - 60) + 'px';
+                
+                img.onclick = function() {
+                    this.remove();
+                    catsLeft--;
+                    document.getElementById('cat-counter').innerText = "Left: " + catsLeft;
+                    if(catsLeft <= 0) {
+                        // Go to Game 3
+                        screen.style.display = 'none';
+                        document.getElementById('game-screen-2').style.display = 'flex';
+                    }
+                }
+                screen.appendChild(img);
+            }
+        }
+
+        // --- GAME 3: LOVE METER ---
+        let loveProgress = 0;
+        function fillLove() {
+            loveProgress += 10; // Adds 10% per click
+            if(loveProgress > 100) loveProgress = 100;
+            
+            document.getElementById('love-bar').style.width = loveProgress + '%';
+
+            if(loveProgress >= 100) {
+                setTimeout(() => {
+                    document.getElementById('game-screen-2').style.display = 'none';
+                    document.getElementById('book-wrapper').style.display = 'block';
+                }, 500);
+            }
+        }
+
+        // Decrease love slowly (For annoying effect)
+        setInterval(() => {
+            if(loveProgress > 0 && loveProgress < 100) {
+                loveProgress -= 2; // Drops 2% every half second
+                document.getElementById('love-bar').style.width = loveProgress + '%';
+            }
+        }, 400);
+
+        // --- NOTEBOOK FLIP ---
+        function flipNext(id) { document.getElementById('p'+id).classList.add('flipped'); }
+        function flipPrev(id) { document.getElementById('p'+id).classList.remove('flipped'); }
+
+    </script>
+</body>
+</html>
